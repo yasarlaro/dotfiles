@@ -28,7 +28,7 @@ function message {
       SUCCESS)        MESSAGE="\033[0;32m$1: \033[0m$2";;
       *)              MESSAGE="$1: $2";;
     esac
-    echo -e "${MESSAGE}"
+    echo -en "${MESSAGE}"
   else
     echo "\033[0;31mError: Invalid number of arguments.\033[0m"
     exit 1
@@ -41,6 +41,7 @@ function wait_for_process {
     printf "."
     sleep 1
   done
+  echo ""
 }
 
 # Install prereq packages
