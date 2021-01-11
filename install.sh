@@ -31,6 +31,9 @@ else
   exit 1
 fi
 
+# Initialize submodules
+git submodule update --init --recursive
+
 # Copy existing .vim and .vimrc file
 if [ -f ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc_${DATE}
@@ -47,4 +50,3 @@ cp .vimrc ~/.vimrc
 
 # Get latest pathogen file
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &> /dev/null
-
