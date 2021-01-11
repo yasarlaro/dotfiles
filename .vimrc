@@ -9,6 +9,11 @@ set statusline+=%*
 set number
 set cursorline
 
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
+setlocal autoindent
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
