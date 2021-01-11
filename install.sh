@@ -34,3 +34,6 @@ mkdir ~/.vim
 cp -r .vim/* ~/.vim/
 cp .vimrc ~/.vimrc
 
+# Get latest pathogen file
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &> /dev/null
+
