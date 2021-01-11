@@ -6,9 +6,6 @@ Installs `pathogen` and below vim plugins as git submodules:
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/bundle/tabnine-vim"]
-	path = .vim/bundle/tabnine-vim
-	url = https://github.com/zxqfl/tabnine-vim
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
