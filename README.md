@@ -20,6 +20,10 @@ Installs `pathogen` and below vim plugins as git submodules:
 	url = https://github.com/vim-scripts/bash-support.vim.git
 ```
 
+# Requirements
+
+Repository expects you are running on RHEL family or Debian family OS.
+
 # Installation
 
 ```bash
