@@ -81,3 +81,5 @@ cp .vimrc ~/.vimrc
 
 # Get latest pathogen file
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &> /dev/null
+
+message SUCCESS "Installation completed."
