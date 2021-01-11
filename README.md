@@ -22,7 +22,7 @@ Installs `pathogen` and below vim plugins as git submodules:
 
 # Installation
 
-```
+```bash
 git clone https://github.com/yasarlaro/dotfiles.git
 cd dotfiles
 chmod +x install.sh && ./install.sh
