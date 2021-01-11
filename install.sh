@@ -20,19 +20,49 @@
 set -o nounset                              # Treat unset variables as an error
 DATE=$(date +%Y%m%d%H%M)
 
+function message {
+  if [ $# -eq 2 ]; then
+    case "$1" in
+      INFO | WARNING) MESSAGE="\033[1;33m$1: \033[0m$2";;
+      FAIL | ERROR)   MESSAGE="\033[0;31m$1: \033[0m$2";;
+      SUCCESS)        MESSAGE="\033[0;32m$1: \033[0m$2";;
+      *)              MESSAGE="$1: $2";;
+    esac
+    echo -e "${MESSAGE}"
+  else
+    echo "\033[0;31mError: Invalid number of arguments.\033[0m"
+    exit 1
+  fi
+}
+
+function wait_for_process {
+  while [ -d /proc/$1 ]
+  do
+    printf "."
+    sleep 1
+  done
+}
+
 # Install prereq packages
+message INFO "Installing prereq packages"
 if [ -f /etc/redhat-release ]; then
-  sudo yum install vim curl git -y
+  sudo yum install vim curl git -y %> /dev/null &
 elif [ -f /etc/lsb-release ]; then
-  sudo apt install vim curl git -y
+  sudo apt install vim curl git -y %> /dev/null &
 else
-  echo "ERROR: Not supported operating system!"
-  echo "Exiting..."
+  message ERROR "Not supported operating system!"
+  message ERROR "Exiting!"
   exit 1
 fi
+PID=$!
+wait_for_process ${PID}
+
 
 # Initialize submodules
-git submodule update --init --recursive
+message INFO "Initializing vim plugins"
+git submodule update --init --recursive %> /dev/null &
+PID=$!
+wait_for_process ${PID}
 
 # Copy existing .vim and .vimrc file
 if [ -f ~/.vimrc ]; then
