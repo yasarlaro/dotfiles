@@ -60,7 +60,7 @@ wait_for_process ${PID}
 
 # Initialize submodules
 message INFO "Initializing vim plugins"
-git submodule update --init --recursive %> /dev/null &
+git submodule update --init --recursive &> /dev/null &
 PID=$!
 wait_for_process ${PID}
 
