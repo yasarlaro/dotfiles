@@ -83,3 +83,4 @@ cp .vimrc ~/.vimrc
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &> /dev/null
 
 message SUCCESS "Installation completed."
+echo ""
