@@ -20,6 +20,17 @@
 set -o nounset                              # Treat unset variables as an error
 DATE=$(date +%Y%m%d%H%M)
 
+# Install prereq packages
+if [ -f /etc/redhat-release ]; then
+  sudo yum install vim curl git -y
+elif [ -f /etc/lsb-release ]; then
+  sudo apt install vim curl git -y
+else
+  echo "ERROR: Not supported operating system!"
+  echo "Exiting..."
+  exit 1
+fi
+
 # Copy existing .vim and .vimrc file
 if [ -f ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc_${DATE}
